@@ -39,9 +39,10 @@ define([
     "ReactWrapper/lib/react",
     "ReactWrapper/lib/react-dom",
     "ReactWrapper/lib/babel",
+    "dojo/text!ReactWrapper/lib/components/Test.jsx",
     // "ReactWrapper/lib/babel!ReactWrapper/lib/components/Test.jsx",
     "dojo/text!ReactWrapper/widget/template/ReactWrapper.html"
-], function(declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, dojoLang, dojoText, dojoHtml, dojoEvent, _jQuery, React, ReactDOM, Babel, widgetTemplate) {
+], function(declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, dojoLang, dojoText, dojoHtml, dojoEvent, _jQuery, React, ReactDOM, Babel, Test, widgetTemplate) {
     "use strict";
 
     var $ = _jQuery.noConflict(true);
@@ -74,13 +75,15 @@ define([
         // dijit._WidgetBase.postCreate is called after constructing the widget. Implement to do extra setup work.
         postCreate: function() {
             logger.debug(this.id + ".postCreate");
-            $.ajax({
-              url:document.getElementById('testjsx').src,
-              success:function(data){
-                // console.log(Babel.transform(data, {presets:['react']}).code)
-                eval(Babel.transform(data, {presets:['react']}).code)
-              }
-            })
+            // $.ajax({
+            //   url:document.getElementById('testjsx').src,
+            //   success:function(data){
+            //     // console.log(Babel.transform(data, {presets:['react']}).code)
+            //     eval(Babel.transform(data, {presets:['react']}).code)
+            //   }
+            // })
+            // console.log(Test);
+            eval(Babel.transform(Test, {presets:['react']}).code)
             // console.log(Babel.transform(document.getElementById('testjsx').src, {presets:['react']}).code)
 
 
