@@ -38,11 +38,12 @@ define([
     "ReactWrapper/lib/jquery-1.11.2",
     "ReactWrapper/lib/react",
     "ReactWrapper/lib/react-dom",
+	"ReactWrapper/lib/react-virtualized",
     "ReactWrapper/lib/babel",
-    "dojo/text!ReactWrapper/lib/components/Test.jsx",
+    "dojo/text!ReactWrapper/lib/components/ListTest.jsx",
     // "ReactWrapper/lib/babel!ReactWrapper/lib/components/Test.jsx",
     "dojo/text!ReactWrapper/widget/template/ReactWrapper.html"
-], function(declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, dojoLang, dojoText, dojoHtml, dojoEvent, _jQuery, React, ReactDOM, Babel, Test, widgetTemplate) {
+], function(declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, dojoLang, dojoText, dojoHtml, dojoEvent, _jQuery, React, ReactDOM, ReactVirt, Babel, Test, widgetTemplate) {
     "use strict";
 
     var $ = _jQuery.noConflict(true);
@@ -51,6 +52,7 @@ define([
     return declare("ReactWrapper.widget.ReactWrapper", [_WidgetBase, _TemplatedMixin], {
         // _TemplatedMixin will create our dom node using this HTML template.
         templateString: widgetTemplate,
+
 
 
         // DOM elements
@@ -83,6 +85,8 @@ define([
             //   }
             // })
             // console.log(Test);
+			var Grid = ReactVirt.Grid;
+			var List = ReactVirt.List;
             eval(Babel.transform(Test, {presets:['react']}).code)
             // console.log(Babel.transform(document.getElementById('testjsx').src, {presets:['react']}).code)
 

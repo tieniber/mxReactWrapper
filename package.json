@@ -1,6 +1,6 @@
 {
   "name": "ReactWrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wrapper that will allow the easy import of existing react components",
   "license": "Apache 2",
   "author": "Conner Charlebois",
